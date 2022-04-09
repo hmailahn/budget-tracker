@@ -9,16 +9,16 @@
   6. [Deployed-Project](#Deployed-Project)
 
 ## Description
-
+Budget tracker is an application that allows a user to track withdrawls and deposits without data or internet connection.
 ## Usage
-
+To use the budget tracker app go to https://budget-tracker-hmailahn.herokuapp.com/ Here you can name a transaction, enter the amount and add or subrtact the funds from your tracker. This app can be used with or without internet connection without disrutption.
 ## Built-With
 * serviceworker.js
 * moongoose
 * express.js
 * Heroku
 ## Screenshot
-
+![image](https://github.com/hmailahn/budget-tracker/blob/main/public/screenshot.png)
 ## Repository
 https://github.com/hmailahn/budget-tracker
 
