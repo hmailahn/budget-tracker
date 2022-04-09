@@ -13,9 +13,14 @@
 ## Usage
 
 ## Built-With
-
+* serviceworker.js
+* moongoose
+* express.js
+* Heroku
 ## Screenshot
 
 ## Repository
+https://github.com/hmailahn/budget-tracker
 
 ## Deployed Project
+https://budget-tracker-hmailahn.herokuapp.com/
