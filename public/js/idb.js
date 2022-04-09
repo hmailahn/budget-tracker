@@ -1,6 +1,6 @@
 // create variable to hold db connection
 let db;
-// establish a connection to IndexedDB database called 'pizza_hunt' and set it to version 1
+// establish a connection to IndexedDB database called 'budget_tracker' and set it to version 1
 const request = indexedDB.open('budget_tracker', 1);
 
 // this event will emit if the database version changes (nonexistant to version 1, v1 to v2, etc.)
@@ -18,8 +18,8 @@ request.onsuccess = function(event) {
   
     // check if app is online, if yes run uploadExpense() function to send all local db data to api
     if (navigator.onLine) {
-      // we haven't created this yet, but we will soon, so let's comment it out for now
-      // uploadExpense();
+      
+      uploadExpense();
     }
   };
   
@@ -28,7 +28,7 @@ request.onsuccess = function(event) {
     console.log(event.target.errorCode);
   };
 
-  // This function will be executed if we attempt to submit a new pizza and there's no internet connection
+  // This function will be executed if we attempt to submit a new expense and there's no internet connection
 function saveRecord(record) {
     // open a new transaction with the database with read and write permissions 
     const transaction = db.transaction(['new_expense'], 'readwrite');
@@ -39,5 +39,51 @@ function saveRecord(record) {
     // add record to your store with add method
     expenseObjectStore.add(record);
   }
+
+
+
+  function uploadExpense() {
+    // open a transaction on your pending db
+    const transaction = db.transaction(['new_expense'], 'readwrite');
+  
+    // access your pending object store
+    const expenseObjectStore = transaction.objectStore('new_expense');
+  
+    // get all records from store and set to a variable
+    const getAll = expenseObjectStore.getAll();
+  
+    getAll.onsuccess = function() {
+      // if there was data in indexedDb's store, let's send it to the api server
+      if (getAll.result.length > 0) {
+        fetch('/api', {
+          method: 'POST',
+          body: JSON.stringify(getAll.result),
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(response => response.json())
+          .then(serverResponse => {
+            if (serverResponse.message) {
+              throw new Error(serverResponse);
+            }
+  
+            const transaction = db.transaction(['new_expense'], 'readwrite');
+            const expenseObjectStore = transaction.objectStore('new_expense');
+            // clear all items in your store
+            expenseObjectStore.clear();
+          })
+          .catch(err => {
+            // set reference to redirect back here
+            console.log(err);
+          });
+      }
+    };
+  }
+  
+  // listen for app coming back online
+  window.addEventListener('online', uploadExpense);
+  
 
   
