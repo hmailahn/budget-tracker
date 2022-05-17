@@ -7,9 +7,10 @@
   4. [Screenshot](#Screenshot)
   5. [Repository](#Repository)
   6. [Deployed-Project](#Deployed-Project)
+  7. [Contact-Me](#Contact-Me)
 
 ## Description
-Budget tracker is an application that allows a user to track withdrawls and deposits without data or internet connection.
+Budget tracker is an application that allows a user to track withdrawals and deposits without data or internet connection.
 ## Usage
 To use the budget tracker app go to https://budget-tracker-hmailahn.herokuapp.com/ Here you can name a transaction, enter the amount and add or subrtact the funds from your tracker. This app can be used with or without internet connection without disrutption.
 ## Built-With
@@ -24,3 +25,12 @@ https://github.com/hmailahn/budget-tracker
 
 ## Deployed Project
 https://budget-tracker-hmailahn.herokuapp.com/
+
+## Contact-Me
+
+Questions?
+
+<details>
+    <summary>Contact</summary>
+    mailahnheidi@gmail.com <br>
+</details>
