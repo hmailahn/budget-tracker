@@ -1,5 +1,7 @@
 # Budget Tracker 
 
+![GitHub last commit](https://img.shields.io/github/last-commit/hmailahn/budget-tracker) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/hmailahn/budget-tracker) ![GitHub watchers](https://img.shields.io/github/watchers/hmailahn/budget-tracker?label=Watch&style=social) ![GitHub top language](https://img.shields.io/github/languages/top/hmailahn/budget-tracker)
+
 ## Table of Contents:
   1. [Description](#Description)
   2. [Usage](#Usage)
